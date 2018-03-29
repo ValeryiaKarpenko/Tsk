@@ -15,21 +15,12 @@ public class Task10 {
 
 	public static void createAllVariants(int a, int b, int c) {
 		int[] arr = new int[6];
-		if (a > 0) {
 			arr[0] = a * 100 + b * 10 + c;
 			arr[1] = a * 100 + c * 10 + b;
-		}
-
-		if (b > 0) {
 			arr[2] = b * 100 + a * 10 + c;
 			arr[3] = b * 100 + c * 10 + a;
-		}
-
-		if (c > 0) {
 			arr[4] = c * 100 + a * 10 + b;
 			arr[5] = c * 100 + b * 10 + a;
-		}
-		System.out.println(Arrays.toString(arr));
 		boolean mask[] = new boolean[arr.length];
 		int removeCount = 0;
 
