@@ -1,12 +1,11 @@
 package main;
 
 import bouquet.Bouquet;
+import bouquet.BouquetManager;
 import flowers.Lilies;
 import flowers.Peony;
 import flowers.Rose;
 import flowers.Ñhrysanthemum;
-import paper.Paper;
-import paper.Ribbon;
 
 public class Main {
 	public static void main(String[] args) {
@@ -16,13 +15,14 @@ public class Main {
 		Peony peony = new Peony("Pink", 20);
 		Lilies lili = new Lilies("White", 30);
 
-		Paper paper = new Paper(10);
-		Ribbon ribbon = new Ribbon(2);
+		BouquetManager bm = new BouquetManager();
 
-		Bouquet bouquet = new Bouquet();
-		bouquet.addFlower(roseRedShort).addFlower(roseRedLong).addFlower(lili).addFlower(chBlue).addFlower(peony);
-		bouquet.addWrapper(paper).addWrapper(ribbon);
-		bouquet.getPrice();
+		bm.addFlower(roseRedShort);
+		bm.addFlower(roseRedLong);
+		bm.addFlower(lili);
+		bm.addFlower(chBlue);
+		bm.addFlower(peony);
+		bm.getPriceBouquet();
 
 	}
 

@@ -10,6 +10,14 @@ public class Rose extends Flower {
 		this.price = generatePrice(price);
 	}
 
+	public double getLenght() {
+		return lenght;
+	}
+
+	public void setLenght(double lenght) {
+		this.lenght = lenght;
+	}
+
 	private double generatePrice(double price) {
 		if (lenght < 30) {
 			return price * 2;
