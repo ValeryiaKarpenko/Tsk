@@ -1,27 +1,36 @@
 package com.lera.library;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Person extends Entity {
-	private String fio;
+	private String name;
+	private List<Book> personBooks = new ArrayList<Book>();
 
-	public Person(String fio) {
-		this.fio = fio;
+	public Person(String name) {
+		this.name = name;
 	}
 
-	Book[] books = new Book[10];
-
-	public String getFio() {
-		return fio;
+	public String getName() {
+		return name;
 	}
 
-	public void setFio(String fio) {
-		this.fio = fio;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public Book[] getBooks() {
-		return books;
+	public List<Book> getPersonBooks() {
+		return personBooks;
 	}
 
-	public void setBooks(Book[] books) {
-		this.books = books;
+	public void setPersonBooks(List<Book> personBooks) {
+		this.personBooks = personBooks;
 	}
+
+	public String print() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("name: ").append(this.name);
+		return sb.toString();
+	}
+
 }

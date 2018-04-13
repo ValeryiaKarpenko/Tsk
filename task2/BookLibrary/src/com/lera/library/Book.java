@@ -3,7 +3,7 @@ package com.lera.library;
 public class Book extends Entity {
 	private String name;
 	private String author;
-	public Person whereTheBook;
+	private Person person;
 
 	public Book(String name, String author) {
 		this.name = name;
@@ -26,11 +26,18 @@ public class Book extends Entity {
 		this.author = author;
 	}
 
-	public Person getWhereTheBook() {
-		return whereTheBook;
+	public Person getPerson() {
+		return person;
 	}
 
-	public void setWhereTheBook(Person whereTheBook) {
-		this.whereTheBook = whereTheBook;
+	public void setPerson(Person person) {
+		this.person = person;
 	}
+
+	public String print() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("name: ").append(this.name).append(" author: ").append(author);
+		return sb.toString();
+	}
+
 }

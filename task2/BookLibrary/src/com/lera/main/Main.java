@@ -2,39 +2,31 @@ package com.lera.main;
 
 import com.lera.library.Book;
 import com.lera.library.Person;
-import com.lera.managers.BookManager;
-import com.lera.managers.Manager;
-import com.lera.managers.PersonManager;
+import com.lera.manager.BookManager;
+import com.lera.manager.PersonManager;
 
-public class Main extends Manager {
+public class Main {
 	public static void main(String[] args) {
-		PersonManager pm = new PersonManager();
 		BookManager bm = new BookManager();
+		PersonManager pm = new PersonManager();
 
-		Person p = new Person("d");
-		Person p1 = new Person("d");
-		Person p3 = new Person("d");
-		Book book1 = new Book("h", "f");
-		Book book2 = new Book("h", "f");
-		Book book3 = new Book("h", "f");
+		Book book = new Book("f", "f");
+		Book book2 = new Book("i", "i");
+		Person person = new Person("Ron");
+		Person person2 = new Person("Harry");
 
-		pm.addPerson(p);
-		pm.addPerson(p1);
-		pm.addPerson(p3);
-		bm.addBook(book1);
+		System.out.println("--books--");
+		bm.addBook(book);
 		bm.addBook(book2);
-		bm.addBook(book3);
-		pm.addBookToPerson(book1, p);
-		pm.addBookToPerson(book2, p);
-		pm.addBookToPerson(book3, p);
-		pm.showAllPersons();
-		System.out.println();
-		pm.showAllBooksPersonHas(p);
-		bm.whereTheBook(book1);
-		pm.delBookToPerson(book1, p);
-		System.out.println();
-		pm.showAllBooksPersonHas(p);
-		bm.showAllBookAndWhoRead();
+		bm.showAllBook();
+		System.out.println("--persons--");
+		pm.addPerson(person);
+		pm.addPerson(person2);
+		pm.showAllPerson();
+		System.out.println("--book to person--");
+		pm.addBookToPerson(person, book);
+		pm.addBookToPerson(person, book2);
+		pm.showAllBookPersonHas(person);
 
 	}
 

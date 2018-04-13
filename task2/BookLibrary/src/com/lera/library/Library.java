@@ -1,23 +1,26 @@
 package com.lera.library;
 
-public class Library extends Entity {
-	private Person[] persons = new Person[10];
-	private Book[] books = new Book[10];
+import java.util.ArrayList;
+import java.util.List;
 
-	public Book[] getBooks() {
+public class Library extends Entity {
+	private List<Book> books = new ArrayList<Book>();
+	private List<Person> persons = new ArrayList<Person>();
+
+	public List<Book> getBooks() {
 		return books;
 	}
 
-	public void setBooks(Book[] books) {
+	public void setBooks(List<Book> books) {
 		this.books = books;
 	}
 
-	public Person[] getPersons() {
-		return persons;
+	public void setPersons(List<Person> persons) {
+		this.persons = persons;
 	}
 
-	public void setPersons(Person[] persons) {
-		this.persons = persons;
+	public List<Person> getPersons() {
+		return persons;
 	}
 
 }
