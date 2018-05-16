@@ -6,7 +6,7 @@ import com.lera.main.Main;
 import com.lera.model.Person;
 import com.lera.ui.api.IAction;
 import com.lera.ui.utils.Input;
-import com.lera.utils.Printer;
+import com.lera.ui.utils.Printer;
 
 public class AddPersonAction implements IAction{
 
