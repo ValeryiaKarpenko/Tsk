@@ -4,13 +4,12 @@ import java.util.List;
 
 import com.lera.api.controller.IController;
 import com.lera.controller.Controller;
-import com.lera.model.Book;
 import com.lera.model.Person;
 import com.lera.ui.api.IAction;
 import com.lera.ui.utils.Input;
 import com.lera.utils.Printer;
 
-public class AddBookToPersonAction implements IAction{
+public class ShowAllPersonBookAction implements IAction{
 
 	@Override
 	public void execute() {
@@ -24,14 +23,7 @@ public class AddBookToPersonAction implements IAction{
 		}
 		int numPerson = input.getInt();
 		
-		Printer.print("Choose book");
-		List<Book> books = controller.getBookList(null);
-		for (int i = 0; i < books.size(); i++) {
-			Printer.print(i + "." + books.get(i).toString());
-		}
-		int numBook = input.getInt();
-		
-		controller.addBookToPerson(persons.get(numPerson), books.get(numBook));
+		controller.showAllPersonBook(persons.get(numPerson));
 		
 	}
 

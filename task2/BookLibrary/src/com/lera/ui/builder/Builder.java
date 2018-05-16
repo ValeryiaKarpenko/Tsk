@@ -9,9 +9,11 @@ import com.lera.ui.actions.book.ReadBookFromCsvAction;
 import com.lera.ui.actions.book.ShowAllBookAction;
 import com.lera.ui.actions.book.ShowAllOrderBookAction;
 import com.lera.ui.actions.book.WriteBookToCsvAction;
+import com.lera.ui.actions.person.AddBookToPersonAction;
 import com.lera.ui.actions.person.AddPersonAction;
 import com.lera.ui.actions.person.ReadPersonsFromCsvAction;
 import com.lera.ui.actions.person.ShowAllPersonAction;
+import com.lera.ui.actions.person.ShowAllPersonBookAction;
 import com.lera.ui.actions.person.WritePersonToCsvAction;
 import com.lera.ui.menu.Menu;
 import com.lera.ui.menu.MenuItem;
@@ -93,6 +95,16 @@ public class Builder {
 		showPersonItem.setTitle("show all person");
 		showPersonItem.setAction(new ShowAllPersonAction());
 		menuItemPerson.add(showPersonItem);
+		
+		MenuItem addBookToPersonItem = new MenuItem();
+		addBookToPersonItem.setTitle("add person");
+		addBookToPersonItem.setAction(new AddBookToPersonAction());
+		menuItemPerson.add(addBookToPersonItem);
+		
+		MenuItem showAllPersonBookItem = new MenuItem();
+		showAllPersonBookItem.setTitle("show all books that person has");
+		showAllPersonBookItem.setAction(new ShowAllPersonBookAction());
+		menuItemPerson.add(showAllPersonBookItem);
 		
 		MenuItem writePersonToCsvItem = new MenuItem();
 		writePersonToCsvItem.setTitle("write persons to csv");
