@@ -19,9 +19,18 @@ public class Input {
 	}
 
 	public int getInt() {
-		return Integer.valueOf(scanner.nextLine());
+		int index = 0;
+		boolean flag = false;
+		while(!flag) {
+			try {
+			index = Integer.valueOf(scanner.nextLine());
+			flag = true;
+		} catch (NumberFormatException e) {
+			Printer.print("its not number");
+		}}
+		return index;
 	}
-	
+
 	public String getString() {
 		return scanner.nextLine();
 	}

@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.lera.ui.menu.Menu;
 import com.lera.ui.menu.MenuItem;
-import com.lera.utils.Printer;
+import com.lera.ui.utils.Printer;
 
 public class Navigator {
 	private Menu currentMenu;
