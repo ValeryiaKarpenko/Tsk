@@ -8,25 +8,28 @@ import com.lera.utils.Printer;
 
 public class Navigator {
 	private Menu currentMenu;
-	
+
 	public Navigator(Menu currentMenu) {
 		this.currentMenu = currentMenu;
 	}
-	
+
 	public void printMenu() {
-		for(int i = 0; i< currentMenu.getMenuItems().size();i++) {
+		for (int i = 0; i < currentMenu.getMenuItems().size(); i++) {
 			Printer.print(i + "." + currentMenu.getMenuItems().get(i).getTitle());
 		}
 	}
-	
+
 	public void navigate(Integer index) {
-		List<MenuItem> menuItemList = currentMenu.getMenuItems();
-		MenuItem menuItem = menuItemList.get(index);
-		if(menuItem.getAction() != null) {
-			menuItem.doAction();
-		}
-		else {
-			currentMenu = menuItem.getNextMenu();
+		if (index < currentMenu.getMenuItems().size()) {
+			List<MenuItem> menuItemList = currentMenu.getMenuItems();
+			MenuItem menuItem = menuItemList.get(index);
+			if (menuItem.getAction() != null) {
+				menuItem.doAction();
+			} else {
+				currentMenu = menuItem.getNextMenu();
+			}
+		} else {
+			Printer.print("wrong");
 		}
 	}
 }

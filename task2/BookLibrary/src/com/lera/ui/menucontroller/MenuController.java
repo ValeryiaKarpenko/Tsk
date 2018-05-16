@@ -14,8 +14,8 @@ public class MenuController {
 		navigator = new Navigator(builder.getRootMenu());
 		while (true) {
 			navigator.printMenu();
-			int position = Input.getInstance().getInt();
-			navigator.navigate(position);
+			int index = Input.getInstance().getInt();
+			navigator.navigate(index);
 		}
 	}
 }
