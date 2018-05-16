@@ -8,6 +8,7 @@ import com.lera.ui.actions.book.AddBookAction;
 import com.lera.ui.actions.book.ReadBookFromCsvAction;
 import com.lera.ui.actions.book.ShowAllBookAction;
 import com.lera.ui.actions.book.ShowAllOrderBookAction;
+import com.lera.ui.actions.book.ShowWhoReadThisBookAction;
 import com.lera.ui.actions.book.WriteBookToCsvAction;
 import com.lera.ui.actions.person.AddBookToPersonAction;
 import com.lera.ui.actions.person.AddPersonAction;
@@ -39,6 +40,11 @@ public class Builder {
 		showBookItem.setTitle("show all book");
 		showBookItem.setNextMenu(bookMenuOrder(rootMenu));
 		menuItemBook.add(showBookItem);
+		
+		MenuItem ShowWhoReadThisBookItem = new MenuItem();
+		ShowWhoReadThisBookItem.setTitle("show who read this book");
+		ShowWhoReadThisBookItem.setAction(new ShowWhoReadThisBookAction());
+		menuItemBook.add(ShowWhoReadThisBookItem);
 		
 		MenuItem writeBookToCsvItem = new MenuItem();
 		writeBookToCsvItem.setTitle("write books to csv");
