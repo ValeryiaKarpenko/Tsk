@@ -5,10 +5,14 @@ import java.util.List;
 
 import com.lera.ui.actions.ExitAction;
 import com.lera.ui.actions.book.AddBookAction;
+import com.lera.ui.actions.book.ReadBookFromCsvAction;
 import com.lera.ui.actions.book.ShowAllBookAction;
 import com.lera.ui.actions.book.ShowAllOrderBookAction;
+import com.lera.ui.actions.book.WriteBookToCsvAction;
 import com.lera.ui.actions.person.AddPersonAction;
+import com.lera.ui.actions.person.ReadPersonsFromCsvAction;
 import com.lera.ui.actions.person.ShowAllPersonAction;
+import com.lera.ui.actions.person.WritePersonToCsvAction;
 import com.lera.ui.menu.Menu;
 import com.lera.ui.menu.MenuItem;
 
@@ -33,6 +37,17 @@ public class Builder {
 		showBookItem.setTitle("show all book");
 		showBookItem.setNextMenu(bookMenuOrder(rootMenu));
 		menuItemBook.add(showBookItem);
+		
+		MenuItem writeBookToCsvItem = new MenuItem();
+		writeBookToCsvItem.setTitle("write books to csv");
+		writeBookToCsvItem.setAction(new WriteBookToCsvAction());
+		menuItemBook.add(writeBookToCsvItem);
+		
+		MenuItem readBookFromCsvItem = new MenuItem();
+		readBookFromCsvItem.setTitle("read books from csv");
+		readBookFromCsvItem.setAction(new ReadBookFromCsvAction());
+		menuItemBook.add(readBookFromCsvItem);
+		
 		bookMenu.setMenuItems(menuItemBook);
 		return bookMenu;
 	}
@@ -78,6 +93,17 @@ public class Builder {
 		showPersonItem.setTitle("show all person");
 		showPersonItem.setAction(new ShowAllPersonAction());
 		menuItemPerson.add(showPersonItem);
+		
+		MenuItem writePersonToCsvItem = new MenuItem();
+		writePersonToCsvItem.setTitle("write persons to csv");
+		writePersonToCsvItem.setAction(new WritePersonToCsvAction());
+		menuItemPerson.add(writePersonToCsvItem);
+		
+		MenuItem readPersonFromCsvItem = new MenuItem();
+		readPersonFromCsvItem.setTitle("read persons from csv");
+		readPersonFromCsvItem.setAction(new ReadPersonsFromCsvAction());
+		menuItemPerson.add(readPersonFromCsvItem);
+		
 		bookMenu.setMenuItems(menuItemPerson);
 		return bookMenu;
 	}
