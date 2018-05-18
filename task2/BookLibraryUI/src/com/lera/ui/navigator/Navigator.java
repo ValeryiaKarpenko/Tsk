@@ -8,6 +8,7 @@ import com.lera.ui.utils.Printer;
 
 public class Navigator {
 	private Menu currentMenu;
+	private final String WRONG_NUMBER = "sorry, wrong number";
 
 	public Navigator(Menu currentMenu) {
 		this.currentMenu = currentMenu;
@@ -29,7 +30,7 @@ public class Navigator {
 				currentMenu = menuItem.getNextMenu();
 			}
 		} else {
-			Printer.print("wrong");
+			Printer.print(WRONG_NUMBER);
 		}
 	}
 }

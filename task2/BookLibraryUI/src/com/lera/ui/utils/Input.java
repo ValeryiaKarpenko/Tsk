@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class Input {
 	private static Input instance;
 	private Scanner scanner;
+	private final String NOT_NUMBER = "its not number";
 
 	private Input(InputStream inputStream) {
 		this.scanner = new Scanner(inputStream);
@@ -26,7 +27,7 @@ public class Input {
 			index = Integer.valueOf(scanner.nextLine());
 			flag = true;
 		} catch (NumberFormatException e) {
-			Printer.print("its not number");
+			Printer.print(NOT_NUMBER);
 		}}
 		return index;
 	}
