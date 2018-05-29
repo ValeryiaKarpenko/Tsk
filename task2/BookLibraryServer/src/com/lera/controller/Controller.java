@@ -24,7 +24,7 @@ public class Controller implements IController {
 
 	private static final Logger log = Logger.getLogger(Controller.class.getName());
 
-	public Controller() {
+	private Controller() {
 		bookService = new BookService();
 		personService = new PersonService();
 	}
