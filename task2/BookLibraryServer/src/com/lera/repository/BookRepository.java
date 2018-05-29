@@ -43,7 +43,8 @@ public class BookRepository extends MainRepository implements IBookRepository, S
 		return bookList;
 	}
 
-	public void addBook(Book book) {
+	public void addBook(String name, String author) {
+		Book book = new Book(name, author);
 		bookList.add(book);
 	}
 

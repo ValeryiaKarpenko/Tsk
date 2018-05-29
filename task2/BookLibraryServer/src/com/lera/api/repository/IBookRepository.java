@@ -8,7 +8,7 @@ import com.lera.model.Book;
 public interface IBookRepository {
 	public List<Book> getBookList(Comparator<Book> nameComporator);
 
-	public void addBook(Book book);
+	public void addBook(String name, String author);
 
 	public void deleteBook(Book book);
 	

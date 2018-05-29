@@ -19,8 +19,8 @@ public class BookService implements IBookService {
 		bookRepository = BookRepository.getInstance();
 	}
 
-	public void addBook(Book book) {
-		bookRepository.addBook(book);
+	public void addBook(String name, String author) {
+		bookRepository.addBook(name,author);
 	}
 
 	public void deleteBook(Book book) {

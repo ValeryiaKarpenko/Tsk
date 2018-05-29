@@ -22,17 +22,25 @@ public class Input {
 	public int getInt() {
 		int index = 0;
 		boolean flag = false;
-		while(!flag) {
+		while (!flag) {
 			try {
-			index = Integer.valueOf(scanner.nextLine());
-			flag = true;
-		} catch (NumberFormatException e) {
-			Printer.print(NOT_NUMBER);
-		}}
+				index = Integer.valueOf(scanner.nextLine());
+				flag = true;
+			} catch (NumberFormatException e) {
+				Printer.print(NOT_NUMBER);
+			}
+		}
 		return index;
 	}
 
 	public String getString() {
 		return scanner.nextLine();
+	}
+
+	@Override
+	protected void finalize() throws Throwable {
+		scanner.close();
+		super.finalize();
+
 	}
 }

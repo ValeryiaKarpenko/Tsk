@@ -1,25 +1,20 @@
 package com.lera.ui.actions.person;
 
-import com.lera.api.controller.IController;
-import com.lera.controller.Controller;
-import com.lera.main.Main;
-import com.lera.model.Person;
+import com.lera.ui.actions.Facade;
 import com.lera.ui.api.IAction;
 import com.lera.ui.utils.Input;
 import com.lera.ui.utils.Printer;
 
-public class AddPersonAction implements IAction{
+public class AddPersonAction implements IAction {
+	private Input input = Input.getInstance();
 
 	@Override
 	public void execute() {
-		Input input = Input.getInstance();
-		IController controller = Controller.getInstance();
 		Printer.print("fio");
 		String fio = input.getString();
-		
-		Person person = Main.createPerson(fio);
-		controller.addPerson(person);
-		
+
+		Facade.reflection.execute("addPerson", fio);
+
 	}
 
 }

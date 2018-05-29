@@ -21,6 +21,7 @@ public class Serializer {
 			objectOutputStream.close();
 		} catch (IOException e) {
 			log.warning(Constant.SOME_OTHER_EXCEPTION);
+			Printer.print(Constant.SOME_OTHER_EXCEPTION);
 		}
 	}
 
@@ -32,10 +33,13 @@ public class Serializer {
 			return mainRepository;
 		} catch (ClassNotFoundException e) {
 			log.warning(Constant.CLASS_NOT_FOUND);
+			Printer.print(Constant.CLASS_NOT_FOUND);
 		} catch (FileNotFoundException e) {
 			log.warning(Constant.FILE_DOSNT_EXIST);
+			Printer.print(Constant.FILE_DOSNT_EXIST);
 		} catch (IOException e) {
 			log.info(Constant.SOME_OTHER_EXCEPTION);
+			Printer.print(Constant.SOME_OTHER_EXCEPTION);
 		}
 		return mainRepository;
 	}

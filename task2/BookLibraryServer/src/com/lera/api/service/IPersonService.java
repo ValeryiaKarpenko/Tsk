@@ -6,7 +6,7 @@ import com.lera.model.Book;
 import com.lera.model.Person;
 
 public interface IPersonService {
-	public void addPerson(Person person);
+	public void addPerson(String name);
 
 	public void deletePerson(Person person);
 

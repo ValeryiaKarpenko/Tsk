@@ -103,7 +103,7 @@ public class Builder {
 		menuItemPerson.add(showPersonItem);
 		
 		MenuItem addBookToPersonItem = new MenuItem();
-		addBookToPersonItem.setTitle("add person");
+		addBookToPersonItem.setTitle("add book to person");
 		addBookToPersonItem.setAction(new AddBookToPersonAction());
 		menuItemPerson.add(addBookToPersonItem);
 		

@@ -10,15 +10,15 @@ import com.lera.repository.PersonRepository;
 import com.lera.utils.CsvWorker;
 import com.lera.utils.Printer;
 
-public class PersonService implements IPersonService{
+public class PersonService implements IPersonService {
 	private IPersonRepository personRepository;
 
 	public PersonService() {
 		personRepository = PersonRepository.getInstance();
 	}
 
-	public void addPerson(Person person) {
-		personRepository.addPerson(person);
+	public void addPerson(String name) {
+		personRepository.addPerson(name);
 	}
 
 	public void deletePerson(Person person) {
@@ -35,11 +35,11 @@ public class PersonService implements IPersonService{
 		book.setReader(person);
 		person.setPersonBookList(listPersonBook);
 	}
-	
+
 	public Person clonePerson(Person person) throws CloneNotSupportedException {
 		return personRepository.clonePerson(person);
 	}
-	
+
 	public void showAllPerson() {
 		Printer.printArray(personRepository.getListPerson());
 	}
@@ -47,14 +47,13 @@ public class PersonService implements IPersonService{
 	public void showAllPersonBook(Person person) {
 		Printer.printArray(person.getPersonBookList());
 	}
-	
+
 	public void writePersonInFile(String filePath) {
-		 CsvWorker.write(personRepository.getListPerson(), filePath);
+		CsvWorker.write(personRepository.getListPerson(), filePath);
 	}
-	
+
 	public void readPersonFromFile(String filePath) {
 		CsvWorker.read(filePath);
 	}
-
 
 }

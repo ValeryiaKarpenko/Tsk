@@ -8,7 +8,7 @@ import com.lera.model.Book;
 import com.lera.model.Person;
 
 public interface IBookService {
-	public void addBook(Book book);
+	public void addBook(String name, String author);
 
 	public void deleteBook(Book book);
 

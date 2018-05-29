@@ -1,6 +1,5 @@
 package com.lera.api.controller;
 
-import java.util.Comparator;
 import java.util.List;
 
 import com.lera.comporator.NameComporator;
@@ -8,15 +7,15 @@ import com.lera.model.Book;
 import com.lera.model.Person;
 
 public interface IController {
-	public void addBook(Book book);
+	public void addBook(String name, String author);
 
-	public void addPerson(Person person);
+	public void addPerson(String name);
 
 	public void addBookToPerson(Person person, Book book);
 	
-	public List<Book> getBookList(Comparator<Book> comporator);
+	public List<Book> getBookList(NameComporator comporator);
 	
-	public List<Person> getPersonList(Comparator<Person> comporator);
+	public List<Person> getPersonList();
 
 	public void showAllBook(NameComporator nameComporator);
 

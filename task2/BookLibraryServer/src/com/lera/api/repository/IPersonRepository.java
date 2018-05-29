@@ -7,7 +7,7 @@ import com.lera.model.Person;
 public interface IPersonRepository {
 	public List<Person> getListPerson();
 
-	public void addPerson(Person person);
+	public void addPerson(String name);
 
 	public void deletePerson(Person person);
 

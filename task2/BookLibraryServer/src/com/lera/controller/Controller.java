@@ -1,6 +1,5 @@
 package com.lera.controller;
 
-import java.util.Comparator;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -15,6 +14,7 @@ import com.lera.repository.MainRepository;
 import com.lera.repository.PersonRepository;
 import com.lera.service.BookService;
 import com.lera.service.PersonService;
+import com.lera.utils.Printer;
 import com.lera.utils.Serializer;
 
 public class Controller implements IController {
@@ -24,7 +24,7 @@ public class Controller implements IController {
 
 	private static final Logger log = Logger.getLogger(Controller.class.getName());
 
-	private Controller() {
+	public Controller() {
 		bookService = new BookService();
 		personService = new PersonService();
 	}
@@ -36,12 +36,12 @@ public class Controller implements IController {
 		return instance;
 	}
 
-	public void addBook(Book book) {
-		bookService.addBook(book);
+	public void addBook(String name, String author) {
+		bookService.addBook(name, author);
 	}
 
-	public void addPerson(Person person) {
-		personService.addPerson(person);
+	public void addPerson(String name) {
+		personService.addPerson(name);
 	}
 
 	public void addBookToPerson(Person person, Book book) {
@@ -49,16 +49,18 @@ public class Controller implements IController {
 			personService.addBookToPerson(person, book);
 		} catch (ArrayStoreException e) {
 			log.info(Constant.WRONG_TYPE);
+			Printer.print(Constant.WRONG_TYPE);
 		} catch (Exception e) {
 			log.info(Constant.SOME_OTHER_EXCEPTION);
+			Printer.print(Constant.SOME_OTHER_EXCEPTION);
 		}
 	}
-	
-	public List<Book> getBookList(Comparator<Book> comporator) {
+
+	public List<Book> getBookList(NameComporator comporator) {
 		return bookService.getBookList(comporator);
 	}
-	
-	public List<Person> getPersonList(Comparator<Person> comporator) {
+
+	public List<Person> getPersonList() {
 		return personService.getListPerson();
 	}
 
@@ -79,6 +81,7 @@ public class Controller implements IController {
 			bookService.showWhoReadThisBook(book);
 		} catch (Exception e) {
 			log.info(Constant.SOME_OTHER_EXCEPTION);
+			Printer.print(Constant.SOME_OTHER_EXCEPTION);
 		}
 	}
 
@@ -88,8 +91,10 @@ public class Controller implements IController {
 			newBook = bookService.cloneBook(book);
 		} catch (CloneNotSupportedException e) {
 			log.info(Constant.OBJECT_CANT_CLONE);
+			Printer.print(Constant.OBJECT_CANT_CLONE);
 		} catch (Exception e) {
 			log.info(Constant.SOME_OTHER_EXCEPTION);
+			Printer.print(Constant.SOME_OTHER_EXCEPTION);
 		}
 		return newBook;
 	}
@@ -100,8 +105,10 @@ public class Controller implements IController {
 			newPerson = personService.clonePerson(person);
 		} catch (CloneNotSupportedException e) {
 			log.info(Constant.OBJECT_CANT_CLONE);
+			Printer.print(Constant.OBJECT_CANT_CLONE);
 		} catch (Exception e) {
 			log.info(Constant.SOME_OTHER_EXCEPTION);
+			Printer.print(Constant.SOME_OTHER_EXCEPTION);
 		}
 		return newPerson;
 	}
@@ -115,7 +122,7 @@ public class Controller implements IController {
 	}
 
 	public void writePersonInFile(String filePath) {
-		 personService.writePersonInFile(filePath);
+		personService.writePersonInFile(filePath);
 	}
 
 	public List<Book> readBookFromFile(String filePath) {

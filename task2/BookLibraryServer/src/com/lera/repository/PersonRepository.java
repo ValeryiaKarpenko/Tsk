@@ -36,7 +36,8 @@ public class PersonRepository extends MainRepository implements IPersonRepositor
 		return listPerson;
 	}
 
-	public void addPerson(Person person) {
+	public void addPerson(String name) {
+		Person person = new Person(name);
 		listPerson.add(person);
 	}
 
